@@ -1,0 +1,25 @@
+(function() {
+  Ext.define("stable_mobile.view.horse.Info", {
+    extend: "Ext.Container",
+    controller: 'stable_mobile.controller.horse.InfoViewController',
+    requires: ['stable_mobile.controller.horse.InfoViewController'],
+    config: {
+      masked: false,
+      cls: 'horse-info',
+      itemId: 'horseInfo',
+      scrollable: true,
+      padding: 10,
+      title: 'Horse Details',
+      items: [
+        {
+          xtype: 'container',
+          itemId: 'infoContent',
+          cls: 'horse-info',
+          html: "<p>loading</p>",
+          tpl: "<h4><b>Barn name:</b> {name}</h4>\n<hr />\n<tpl if='show_name'>\n	<h4><b>Show name:</b> {show_name}</h4>\n	<hr />\n</tpl>\n<tpl if='usef_number'>\n	<h4><b>USEF #:</b> {usef_number}</h4>\n	<hr />\n</tpl>\n<tpl if='owner'>\n	<h4><b>Owner:</b> {owner}</h4>\n	<hr />\n</tpl>\n\n<tpl if='lease.person_name'>\n	<h4><b>Leased by:</b> {lease.person_name}</h4>\n	<hr />\n</tpl>\n\n<tpl if='lease.price'>\n	<h4><b>Lease price:</b> ${lease.price}</h4>\n	<hr />\n</tpl>\n\n<tpl if='lease.start_at'>\n	<h4><b>Lease start date:</b> {lease.start_at:date('m/d/Y')}</h4>\n	<hr />\n</tpl>\n\n<tpl if='lease.end_at'>\n	<h4><b>Lease end date:</b> {lease.end_at:date('m/d/Y')}</h4>\n	<hr />\n</tpl>\n\n<tpl if='lease.comments'>\n	<h4><b>Lease notes:</b> {lease.notes}</h4>\n	<hr />\n</tpl>\n\n\n\n<tpl if='gender'>\n	<h4><b>Sex:</b> {gender}</h4>\n	<hr />\n</tpl>\n<tpl if='display_height'>\n	<h4><b>Height:</b> {display_height} hands</h4>\n	<hr />\n</tpl>\n<tpl if='age'>\n	<h4><b>Age:</b> {age}</h4>\n	<hr />\n</tpl>\n<tpl if='color'>\n	<h4><b>Color:</b> {color}</h4>\n	<hr />\n</tpl>\n<tpl if='markings'>\n	<h4><b>Markings:</b> {markings}</h4>\n	<hr />\n</tpl>\n<tpl if='breed'>\n	<h4><b>Breed:</b> {breed}</h4>\n	<hr />\n</tpl>\n<tpl if='brand'>\n	<h4><b>Brand:</b> {brand}</h4>\n	<hr />\n</tpl>\n<tpl if='tattoo'>\n	<h4><b>Tattoo:</b> {tattoo}</h4>\n	<hr />\n</tpl>\n<tpl if='microchip'>\n	<h4><b>Microchip:</b> {microchip}</h4>\n	<hr />\n</tpl>\n\n\n<tpl if='sire'>\n	<h4><b>Sire:</b> {sire}</h4>\n	<hr />\n</tpl>\n<tpl if='dam'>\n	<h4><b>Dam:</b> {dam}</h4>\n	<hr />\n</tpl>\n<tpl if='dam_sire'>\n	<h4><b>Dam sire:</b> {dam_sire}</h4>\n	<hr />\n</tpl>\n\n<tpl if='insurance.name'>\n	<h4><b>Insurer:</b> {insurance.name}</h4>\n	<hr />\n</tpl>\n<tpl if='insurance.policy_number'>\n	<h4><b>Insurance policy number:</b> {insurance.policy_number}</h4>\n	<hr />\n</tpl>\n<tpl if='insurance.agent'>\n	<h4><b>Insurance agent:</b> {insurance.agent}</h4>\n	<hr />\n</tpl>\n<tpl if='insurance.phone'>\n	<h4><b>Insurance phone:</b> <a href='tel:{insurance.phone}'>{insurance.phone}</a></h4>\n	<hr />\n</tpl>\n\n<tpl if='coggins_date'>\n	<h4><b>Coggins renewal date:</b> {coggins_date:date('m/d/Y')}</h4>\n	<hr />\n</tpl>\n<tpl if='last_coggins_date'>\n	<h4><b>Last coggins date:</b> {last_coggins_date:date('m/d/Y')}</h4>\n	<hr />\n</tpl>\n\n<tpl if='passport_number'>\n	<h4><b>Passport #:</b> {passport_number}</h4>\n	<hr />\n</tpl>\n<tpl if='passport_renewal_date'>\n	<h4><b>Passport renewal:</b> {passport_renewal_date:date('m/d/Y')}</h4>\n	<hr />\n</tpl>\n\n<tpl if='fei_number'>\n	<h4><b>FEI #:</b> {fei_number}</h4>\n	<hr />\n</tpl>\n<tpl if='fei_renewal_date'>\n	<h4><b>FEI renewal:</b> {fei_renewal_date:date('m/d/Y')}</h4>\n	<hr />\n</tpl>\n\n<tpl if='breed_registration_number'>\n	<h4><b>Breed registration #:</b> {breed_registration_number}</h4>\n	<hr />\n</tpl>\n<tpl if='measurement_card_number'>\n	<h4><b>Measurement card #:</b> {measurement_card_number}</h4>\n	<hr />\n</tpl>\n<tpl if='ushja_number'>\n	<h4><b>USHJA #:</b> {ushja_number}</h4>\n	<hr />\n</tpl>\n<tpl if='registration_number_notes'>\n	<h4><b>Additional reg #s:</b> {registration_number_notes}</h4>\n	<hr />\n</tpl>\n\n\n<tpl if='allergies'>\n	<h4><b>Allergies:</b> {allergies}</h4>\n	<hr />\n</tpl>\n<tpl if='vices'>\n	<h4><b>Vices:</b> {vices}</h4>\n	<hr />\n</tpl>\n\n<tpl if='comments'>\n	<h4><b>Notes:</b> {comments}</h4>\n	<hr />\n</tpl>\n<tpl if='equipment_notes'>\n	<h4><b>Equipment notes:</b> {equipment_notes}</h4>\n	<hr />\n</tpl>\n<tpl if='prep_notes'>\n	<h4><b>Prep notes:</b> {prep_notes}</h4>\n	<hr />\n</tpl>\n\n\n<tpl if='am_meal'>\n	<h4><b>AM meal:</b> {am_meal}</h4>\n	<hr />\n</tpl>\n<tpl if='lunch_meal'>\n	<h4><b>Lunch meal:</b> {lunch_meal}</h4>\n	<hr />\n</tpl>\n<tpl if='pm_meal'>\n	<h4><b>PM meal:</b> {pm_meal}</h4>\n	<hr />\n</tpl>\n<tpl if='night_meal'>\n	<h4><b>Night-check:</b> {night_meal}</h4>\n	<hr />\n</tpl>\n\n\n<tpl if='purchase_date'>\n	<h4><b>Purchase date:</b> {purchase_date:date('m/d/Y')}</h4>\n	<hr />\n</tpl>\n\n<tpl if='sale_date'>\n	<h4><b>Sale date:</b> {sale_date:date('m/d/Y')}</h4>\n	<hr />\n</tpl>\n\n<tpl if='sale_price'>\n	<h4><b>Sale price:</b> ${sale_price}</h4>\n	<hr />\n</tpl>\n\n<tpl if='departure_date'>\n	<h4><b>Departure date:</b> {departure_date:date('m/d/Y')}</h4>\n	<hr />\n</tpl>\n\n<tpl if='documents'>\n	<h4><b>Documents:</b> \n	<br/>\n	<tpl for='documents'>\n		<br/>\n		<a href='{url}' target='_blank'>{filename}</a>\n		<br/>\n	</tpl>\n	</h4>\n	<hr />\n</tpl>\n"
+        }
+      ]
+    }
+  });
+
+}).call(this);
